@@ -155,6 +155,10 @@ class FilePatternLibraryParser extends PatternLibraryParserBase {
         $pattern->schema['properties'],
         $pattern
       );
+      $pattern->schema['definitions'] = static::schemaDereference(
+        $pattern->schema['definitions'],
+        $pattern
+      );
       $metadata[$pattern_type] = $pattern;
     }
     return $metadata;
