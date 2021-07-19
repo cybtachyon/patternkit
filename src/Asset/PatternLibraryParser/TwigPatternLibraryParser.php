@@ -83,6 +83,10 @@ class TwigPatternLibraryParser extends PatternLibraryParserBase {
       $schema['properties'],
       $pattern
     );
+    $schema['definitions'] = static::schemaDereference(
+      $schema['definitions'],
+      $pattern
+    );
     $assets['schema'] = $this->serializer::encode($schema);
     return $assets;
   }

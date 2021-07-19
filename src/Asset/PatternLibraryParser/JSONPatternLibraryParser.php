@@ -100,6 +100,12 @@ class JSONPatternLibraryParser extends PatternLibraryParserBase {
           $pattern
         );
       }
+      if (isset($schema['definitions'])) {
+        $schema['definitions'] = static::schemaDereference(
+          $schema['definitions'],
+          $pattern
+        );
+      }
       $pattern->setSchema($schema);
       $metadata[$pattern_type] = $pattern->toArray();
     }
